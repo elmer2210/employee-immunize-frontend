@@ -1,0 +1,70 @@
+<div class="font-sans">
+  <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+    <div class="relative sm:max-w-sm w-full">
+      <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+      <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+      <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+        <img
+          class="mx-auto w-48"
+          src="./assets/18824957.jpg"
+          alt="logo"
+        />
+        <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
+          We are Good!
+        </label>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-10">
+
+          <div class="mb-4">
+            <label class="block mt-3 text-gray-700 text-md font-semibold" for="">
+              Usuario
+            </label>
+            <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700"
+                   name="username"
+                   type="text"
+                   formControlName="username"
+                   required="true"
+                   placeholder="Usuario">
+          </div>
+
+          <div class="mb-4">
+            <label class="block mt-3 text-gray-700 text-md font-semibold" for="">
+              PassWord
+            </label>
+            <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700"
+                   name="password"
+                   type="password"
+                   formControlName="password"
+                   required="true"
+                   placeholder="Password">
+          </div>
+
+
+          <div class="mt-7">
+            <button class="bg-purple-600 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
+              type="submit">
+              Login
+            </button>
+          </div>
+
+          <div class="flex mt-7 items-center text-center">
+            <hr class="border-gray-300 border-1 w-full rounded-md">
+            <label class="block font-medium text-sm text-gray-600 w-full">
+              Ingresa con
+            </label>
+            <hr class="border-gray-300 border-1 w-full rounded-md">
+          </div>
+
+          <div class="flex mt-7 justify-center w-full">
+            <button class="mr-5 bg-blue-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+              Facebook
+            </button>
+
+            <button class="bg-red-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+              Google
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

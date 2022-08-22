@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "ci": "0942631607",
+      "names": "Elmer Gianny",
+      "surnames": "Rivadeneira Rivas",
+      "email": "elmerrivadeneira@gmail.com",
+      "username": "elmer2210",
+      "password": "elmer12345",
+      "role": "admin"
+    },
+    {
+      "ci": "1234567896",
+      "names": "Juan",
+      "surnames": "Fernandez",
+      "email": "pedrofer@example.com",
+      "username": "pedrofer@example.com",
+      "password": "user-1234567896",
+      "role": {
+        "id": 2,
+        "role_name": "emplojee",
+        "role_description": "Empleado"
+      },
+      "id": 2
+    }
+  ]
+}

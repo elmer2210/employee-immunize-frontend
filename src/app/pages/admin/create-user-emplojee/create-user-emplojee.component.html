@@ -1,0 +1,87 @@
+<div class="font-sans">
+  <div class="relative min-h-screen flex flex-col p-12 items-center ">
+    <div class="relative w-2/5">
+      <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+      <div class="card bg-emerald-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+      <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-50 shadow-md">
+        <label for="" class="block mt-3 text-lg text-gray-700 p-4 text-center font-semibold">
+          Registrar Empleado Nuevo
+        </label>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="mb-4">
+            <label class="block mt-3 text-gray-700 text-md font-semibold" for="">
+              Cedula Identidad
+            </label>
+            <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700"
+                   name="ci"
+                   formControlName="ci"
+                   type="text"
+                   required
+                   placeholder="Cedula Identidad">
+            <div *ngIf="userForm.get('ci')?.touched && userForm.get('ci')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
+            <div *ngIf="userForm.get('ci')?.touched && userForm.get('ci')?.errors?.['minlength']" class="text-red-600 bg-red-300 p-2">
+              El número de cédula no puede tener menos de {{userForm.get('ci')?.errors?.['minlength'].requiredLength}} dígitos
+            </div>
+            <div *ngIf="userForm.get('ci')?.touched && userForm.get('ci')?.errors?.['maxlength']" class="text-red-600 bg-red-300 p-2">
+              El número de cédula no puede tener más de {{userForm.get('ci')?.errors?.['maxlength'].requiredLength}} dígitos
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block mt-3 text-gray-700 text-md font-semibold" for="">
+              Nombres
+            </label>
+            <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700"
+                   name="names"
+                   type="text"
+                   formControlName="names"
+                   required="true"
+                   placeholder="Nombres">
+            <div *ngIf="userForm.get('names')?.touched && userForm.get('names')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
+            <div *ngIf="userForm.get('names')?.touched && userForm.get('names')?.errors?.['pattern']" class="text-red-600 bg-red-300 p-2">Solo se acepta letras</div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block mt-3 text-gray-700 text-md font-semibold" for="">
+              Apellidos
+            </label>
+            <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700 "
+                   name="surnames"
+                   type="text"
+                   formControlName="surnames"
+                   required
+                   placeholder="Apellidos">
+            <div *ngIf="userForm.get('surnames')?.touched && userForm.get('surnames')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
+            <div *ngIf="userForm.get('names')?.touched && userForm.get('names')?.errors?.['pattern']" class="text-red-600 bg-red-300 p-2">Solo se acepta letras</div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block mt-3 text-gray-700 text-md font-semibold" for="">
+              Correo Electrónico
+            </label>
+            <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700"
+                   name="email"
+                   type="email"
+                   formControlName="email"
+                   required
+                   placeholder="Correo Electrónico">
+            <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
+            <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']" class="text-red-600 bg-red-300 p-2">Debe insertar un correo válido</div>
+          </div>
+
+          <div class="mt-7">
+            <button class="bg-purple-600 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105"
+                    type="submit">
+              Crear Empleado
+            </button>
+
+          </div>
+        </form>
+        <div class="p-2">
+          <a routerLink="/adminDashboard" class="text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

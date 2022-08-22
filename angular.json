@@ -64,9 +64,17 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "production",
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -76,6 +84,9 @@
             },
             "development": {
               "browserTarget": "emplojee-immunization-frontend:build:development"
+            },
+            "dev": {
+              "browserTarget": "emplojee-immunization-frontend:build:dev"
             }
           },
           "defaultConfiguration": "development"
