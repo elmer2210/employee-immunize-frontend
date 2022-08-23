@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, RouteConfigLoadEnd, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../../../models/User";
-import {AuthService} from "../../../data/services/api/auth.service";
+import {AuthService} from "../../../data/services/api/auth/auth.service";
+import {Login, LoginResponse} from "../../../models/Login";
+import {Role} from "../../../models/Role";
 
 @Component({
   selector: 'app-login',
@@ -12,46 +14,45 @@ import {AuthService} from "../../../data/services/api/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  loginForm:FormGroup = this.newForm
+  loginForm:FormGroup = this.newForm;
+  errorStatus:boolean = false;
+  errorMsg:any = "";
 
   constructor(private _formBuilder: FormBuilder,
               private authService:AuthService,
-              public route: ActivatedRoute,
-              public routes: Router) { }
+              public router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit():void{
-    console.log(this.loginForm.value);
     if (this.loginForm.valid){
       console.log("Entró awuí")
-      this.login(this.usernameField.value, this.passwordField.value);
+      this.login(this.loginForm.value);
     }else{
       this.loginForm.markAllAsTouched();
     }
   }
 
-  login(username:string, password:string){
-    this.authService.login(username, password).subscribe(user=>{
-
-      if(user){
-        switch (user.role){
+  login(login:Login){
+    this.authService.onlogin(login).subscribe(resp => {
+      if (resp.msg?.summary == 'OK') {
+        switch (resp.msg?.details.role?.role_name) {
           case 'admin':{
-            this.routes.navigate(['adminDashboard']);
-            alert(`Bienvenido ${user.username}`);
+            this.router.navigate(['adminDashboard']).then(()=>{window.location.reload();});
             break;
-          };
-          case 'emplojee':{
-            this.routes.navigate(['emplojeeDashboard']);
-            alert(`Bienvenido ${user.username}`);
+          }case 'employee':{
+            alert("Sus pantallas entan en contrucción pronto podrá ingresar")
             break;
-          };
-          default:{
-            alert(`El usuario o contraseña incorrecta`);
+          }default:{
+            this.router.navigate(['login'])
+            alert('Ups!!, algo salio mal')
             break;
           }
         }
+      }else{
+        this.errorStatus = true;
+        this.errorMsg = resp.msg?.summary;
       }
     })
   }

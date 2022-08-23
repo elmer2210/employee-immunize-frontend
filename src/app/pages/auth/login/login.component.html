@@ -12,6 +12,9 @@
         <label for="" class="block mt-3 text-sm text-gray-700 text-center font-semibold">
           We are Good!
         </label>
+        <div class="text-red-600 bg-red-300 p-2" *ngIf="errorStatus">
+          <p>{{errorMsg}}</p>
+        </div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-10">
 
           <div class="mb-4">

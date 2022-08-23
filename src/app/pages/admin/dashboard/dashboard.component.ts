@@ -10,9 +10,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  users:User[] = [];
+  users: any;
   constructor(private userService:UserService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.showUser();
@@ -27,7 +28,7 @@ export class DashboardComponent implements OnInit {
   }
 
   editUser(id:number){
-    this.router.navigate(['/updateUserEmplojee', id]);
+    this.router.navigate(['/updateUserEmployee', id]);
   }
 
   deleteUser(id:number){

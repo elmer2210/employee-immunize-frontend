@@ -8,8 +8,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './pages/layauts/navbar/navbar.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { CreateUserEmplojeeComponent } from './pages/admin/create-user-emplojee/create-user-emplojee.component';
+import { CreateUserEmplojeeComponent } from './pages/admin/create-user-employee/create-user-emplojee.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { EditUserEmployeeComponent } from './pages/admin/edit-user-employee/edit-user-employee.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NavbarComponent,
     DashboardComponent,
     LoginComponent,
-    CreateUserEmplojeeComponent
+    CreateUserEmplojeeComponent,
+    EditUserEmployeeComponent
   ],
   imports: [
     BrowserModule,

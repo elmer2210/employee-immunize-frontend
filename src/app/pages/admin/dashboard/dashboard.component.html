@@ -5,7 +5,7 @@
   </div>
   <div class="mt-5 flex lg:mt-0 lg:ml-4 p-4">
     <span class="sm:ml-3">
-      <a routerLink="/createUserEmplojee" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+      <a routerLink="/createUserEmployee" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
         Crear Empleado
       </a>
     </span>
@@ -26,11 +26,11 @@
     </thead>
     <tbody class=" rounded divide-y-2 divide-solid divide-blue-900">
     <tr *ngFor="let user of users">
-      <td class="p-2 text-center text-base">{{user.ci}}</td>
-      <td class="p-2 text-center text-base">{{user.names}} {{user.surname}}</td>
+      <td class="p-2 text-center text-base">{{user.identity_card}}</td>
+      <td class="p-2 text-center text-base">{{user.names}} {{user.surnames}}</td>
       <td class="p-2 text-center text-base">{{user.email}}</td>
       <td class="p-2 text-center text-base">{{user.username}}</td>
-      <td class="p-2 text-center text-base">Vacunado</td>
+      <td class="p-2 text-center text-base">{{user.profile?.injection_state}}</td>
       <td class="p-2 text-center text-base">
         <button (click)="editUser(user.id!)" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
           Editar

@@ -36,12 +36,17 @@
         <div class="flex-1"></div>
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
+            <div *ngIf="!isLogin">
+              <a routerLink="/home" class="text-black-300  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a routerLink="/login" class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+              <a href="#" class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+            </div>
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" bg-gray-900-->
-            <a routerLink="/home" class="text-black-300  hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-
-            <a routerLink="/login" class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-
-            <a href="#" class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+            <div *ngIf="isLogin || isLogin">
+              <button (click)="logaut()" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                Lagaut
+              </button>
+            </div>
           </div>
         </div>
       </div>

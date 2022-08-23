@@ -13,14 +13,14 @@
               Cedula Identidad
             </label>
             <input class="shadow appearance-none border-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-2 focus:ring-purple-700"
-                   name="ci"
-                   formControlName="ci"
+                   name="identity_card"
+                   formControlName="identity_card"
                    type="text"
                    required
                    placeholder="Cedula Identidad">
-            <div *ngIf="userForm.get('ci')?.touched && userForm.get('ci')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
-            <div *ngIf="userForm.get('ci')?.touched && userForm.get('ci')?.errors?.['minlength']" class="text-red-600 bg-red-300 p-2">
-              El número de cédula no puede tener menos de {{userForm.get('ci')?.errors?.['minlength'].requiredLength}} dígitos
+            <div *ngIf="userForm.get('identity_card')?.touched && userForm.get('identity_card')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
+            <div *ngIf="userForm.get('identity_card')?.touched && userForm.get('identity_card')?.errors?.['minlength']" class="text-red-600 bg-red-300 p-2">
+              El número de cédula no puede tener menos de {{userForm.get('identity_card')?.errors?.['minlength'].requiredLength}} dígitos
             </div>
             <div *ngIf="userForm.get('ci')?.touched && userForm.get('ci')?.errors?.['maxlength']" class="text-red-600 bg-red-300 p-2">
               El número de cédula no puede tener más de {{userForm.get('ci')?.errors?.['maxlength'].requiredLength}} dígitos
@@ -52,7 +52,7 @@
                    required
                    placeholder="Apellidos">
             <div *ngIf="userForm.get('surnames')?.touched && userForm.get('surnames')?.errors?.['required']" class="text-red-600 bg-red-300 p-2">Este campo es requerido</div>
-            <div *ngIf="userForm.get('names')?.touched && userForm.get('names')?.errors?.['pattern']" class="text-red-600 bg-red-300 p-2">Solo se acepta letras</div>
+            <div *ngIf="userForm.get('surnames')?.touched && userForm.get('surnames')?.errors?.['pattern']" class="text-red-600 bg-red-300 p-2">Solo se acepta letras</div>
           </div>
 
           <div class="mb-4">
